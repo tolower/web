@@ -12,5 +12,7 @@ func init() {
 	beego.SetStaticPath("/js", "static/js")
 	//设置路由规则
 	beego.Router("/", &controllers.MainController{})
+	beego.Router("/add", &controllers.MainController{}, "get:Add")
 	beego.Router("/login", &controllers.LoginController{})
+	beego.Router("/topic", &controllers.TopicController{})
 }

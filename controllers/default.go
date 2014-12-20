@@ -1,7 +1,9 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
+	. "web/models"
 )
 
 type MainController struct {
@@ -9,7 +11,22 @@ type MainController struct {
 }
 
 func (this *MainController) Get() {
-	this.Data["Website"] = "beego.me"
-	this.Data["Email"] = "astaxie@gmail.com"
+	//查询帖子列表
+	topics, err := QueryAllTopic()
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		this.Data["Topics"] = topics
+	}
+	//
+	this.Data["Title"] = "主页"
 	this.TplNames = "index.tpl"
+}
+
+//发表新帖子
+func (this *MainController) Add() {
+
+	this.Data["Title"] = "发表"
+	this.TplNames = "add_topic.tpl"
+
 }
