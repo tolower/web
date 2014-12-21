@@ -24,7 +24,7 @@
 			<div>
 				评论：
 				<p>
-					<textarea id="commit" rows="10" style="width:100%" ></textarea>
+					<textarea id="comment" rows="10" style="width:100%" ></textarea>
 				</p>
 				<div class="col-md-4">
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>
@@ -41,21 +41,15 @@
 	{{template "common/foot.tpl" .}}
 	<script>
 		var baseUrl="http://localhost:8080";
-		$(function(){
-			$("#login").click(function(){
-				var url=baseUrl+"/login"
-				$.post(url,{},function(result){
-					console.log(result);
-				});
-			});
-		})
+		
 		$("#add").click(function(){
-			var content=$("#content").val();
-			var url=baseUrl+"/topic";
-			$.post(url,{content:content},function(result){
+			var comment=$("#comment").val();
+			var topicId='{{.Topic.Id}}';
+			var url=baseUrl+"/comment";
+			$.post(url,{topicId:topicId,comment:comment},function(result){
 				if(result.msg=="success"){
 					alert("发表成功!");
-					window.location.href=baseUrl;
+					window.location.reload();
 				}else{
 					alert("发表失败！");
 				}

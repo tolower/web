@@ -93,3 +93,10 @@ func QueryAllTopic() ([]*Topic, error) {
 	_, err := o.QueryTable("topic").RelatedSel().All(&topics)
 	return topics, err
 }
+
+//添加评论
+func AddComment(comment *Comment) error {
+	o := orm.NewOrm()
+	_, err := o.Insert(comment)
+	return err
+}
