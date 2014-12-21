@@ -18,9 +18,7 @@
 				内容区
 				{{range .Topics}}
 					<div>
-						用户：{{.UserInfo}},
-						标题：<a href="/topic?id={{.Id}}">{{.Title}}</a>，
-						内容：{{.Content}}，时间：{{.CreateDate}}
+						用户：{{.UserId}}，内容：{{.Content}}，时间：{{.CreateDate}}
 					</div>
 				{{end}}
 			</div>
