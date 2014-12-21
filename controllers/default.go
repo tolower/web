@@ -13,6 +13,7 @@ type MainController struct {
 func (this *MainController) Get() {
 	//查询帖子列表
 	topics, err := QueryAllTopic()
+	fmt.Println(*(topics[0].UserInfo))
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -27,6 +28,6 @@ func (this *MainController) Get() {
 func (this *MainController) Add() {
 
 	this.Data["Title"] = "发表"
-	this.TplNames = "add_topic.tpl"
+	this.TplNames = "add.tpl"
 
 }

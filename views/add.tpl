@@ -7,23 +7,24 @@
 			<div class="col-md-12">
 				<div class="row" style="border:thin solid #0f0">
 					<div class="col-md-8">
-						<p><h2>如果你对未来的公司有疑问或者对现在的公司有话要说，那么现在请你勇敢的讲出来<h2></p>
+						<p><h2><h2></p>
 					</div>
-					<div class="col-md-4">
-					 	<a href="/add" class="btn btn-primary " type="button">让我来说</a>
-					</div>
+					
 				</div>
 			</div>
 			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
-				内容区
-				{{range .Topics}}
-					<div>
-						用户：{{.UserInfo}},
-						标题：<a href="/topic?id={{.Id}}">{{.Title}}</a>，
-						内容：{{.Content}}，时间：{{.CreateDate}}
-					</div>
-				{{end}}
+				<div>
+					标题：<input type="text" id="title" style="width:80%" />
+				</div>
+				内容：
+				<p>
+					<textarea id="content" rows="10" style="width:100%" ></textarea>
+				</p>
+				<div class="col-md-4">
+				 	<button id="add" class="btn btn-primary " type="button">发表</button>
+				</div>	
 			</div>
+			
 		</div>
 		<!--右侧信息-->
 		<div class="col-md-3" style="border:thin solid #6cf">
@@ -42,8 +43,20 @@
 					console.log(result);
 				});
 			});
-			
 		})
+		$("#add").click(function(){
+			var content=$("#content").val();
+			var title=$("#title").val();
+			var url=baseUrl+"/topic";
+			$.post(url,{content:content,title:title},function(result){
+				if(result.msg=="success"){
+					alert("发表成功!");
+					window.location.href=baseUrl;
+				}else{
+					alert("发表失败！");
+				}
+			});
+		});
 	</script>	
 	</body>
 </html>

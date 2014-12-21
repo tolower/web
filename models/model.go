@@ -12,18 +12,22 @@ type UserInfo struct {
 	UserName     string
 	Password     string
 	RegisterDate string
+	OpenId       string
+	Token        string
+	Topics       []*Topic   `orm:"reverse(many)"`
+	Comments     []*Comment `orm:"reverse(many)"`
 }
 
 //topic
 type Topic struct {
-	Id          int
-	Content     string
-	CreateDate  time.Time
-	Catalog     string
-	Type        string
-	CompanyId   int
-	CompanyName string
-	UserId      int
+	Id         int
+	Title      string
+	Content    string
+	CreateDate time.Time
+	Catalog    string
+	Type       string
+	UserInfo   *UserInfo  `orm:"rel(fk)"`
+	Comments   []*Comment `orm:"reverse(many)"`
 }
 
 //company
@@ -34,6 +38,15 @@ type Company struct {
 	Address string
 	Phone   string
 	Email   string
+}
+
+//comment
+type Comment struct {
+	Id         int
+	Text       string
+	CreateDate time.Time
+	Topic      *Topic    `orm:"rel(fk)"`
+	UserInfo   *UserInfo `orm:"rel(fk)"`
 }
 
 //初始化
@@ -55,6 +68,14 @@ func GetUserInfo(id int) (UserInfo, error) {
 	return user, err
 }
 
+//获取帖子
+func GetTopic(id int) (Topic, error) {
+	o := orm.NewOrm()
+	topic := Topic{Id: id}
+	err := o.Read(&topic)
+	return topic, err
+}
+
 //添加帖子
 func AddTopic(topic *Topic) error {
 	o := orm.NewOrm()
@@ -66,6 +87,6 @@ func AddTopic(topic *Topic) error {
 func QueryAllTopic() ([]*Topic, error) {
 	o := orm.NewOrm()
 	var topics []*Topic
-	_, err := o.QueryTable("topic").All(&topics)
+	_, err := o.QueryTable("topic").RelatedSel().All(&topics)
 	return topics, err
 }
