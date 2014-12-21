@@ -15,7 +15,7 @@ type CommentController struct {
 func (this *CommentController) Post() {
 	comment := this.GetString("comment")
 	topicIdStr := this.GetString("topicId")
-	topicId := strconv.Atoi(topicIdStr)
+	topicId, _ := strconv.Atoi(topicIdStr)
 	//构造对象
 	com := Comment{Text: comment}
 	topic := Topic{Id: topicId}
