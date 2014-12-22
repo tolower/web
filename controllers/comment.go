@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/astaxie/beego"
 	"strconv"
+	"time"
 	. "web/models"
 )
 
@@ -18,7 +19,8 @@ func (this *CommentController) Post() {
 	topicIdStr := this.GetString("topicId")
 	topicId, _ := strconv.Atoi(topicIdStr)
 	//构造对象
-	com := Comment{Text: comment}
+	createDate := time.Now()
+	com := Comment{Text: comment, CreateDate: createDate, State: "1", Ip: this.Ctx.Input.Host()}
 	topic := Topic{Id: topicId}
 	com.Topic = &topic
 	u := UserInfo{Id: 1}

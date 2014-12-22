@@ -29,13 +29,13 @@
 			<div>
 				评论：
 				{{range .Topic.Comments}}
-					<div>
+					<div style="border:thin solid #6cf;margin-top:15px">
 						用户：{{.UserInfo.UserName}},内容：{{.Text}},
 						时间：{{.CreateDate}}
 					</div>
 				{{end}}
 				<p>
-					<textarea id="comment" rows="10" style="width:100%" ></textarea>
+					<textarea id="comment" rows="5" style="width:100%" ></textarea>
 				</p>
 				<div class="col-md-4">
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>

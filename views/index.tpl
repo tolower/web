@@ -17,8 +17,8 @@
 			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
 				内容区
 				{{range .Topics}}
-					<div>
-						用户：{{.UserInfo}}，
+					<div style="border:thin solid #6cf;margin-top:15px">
+						用户：{{.UserInfo.UserName}}，
 						标题：<a href="/topic?id={{.Id}}" >{{.Title}}</a>
 						内容：{{.Content}}，时间：{{.CreateDate}}
 					</div>

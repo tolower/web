@@ -45,6 +45,8 @@ type Comment struct {
 	Id         int
 	Text       string
 	CreateDate time.Time
+	Ip         string
+	State      string
 	Topic      *Topic    `orm:"rel(fk)"`
 	UserInfo   *UserInfo `orm:"rel(fk)"`
 }
