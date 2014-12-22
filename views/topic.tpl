@@ -14,15 +14,26 @@
 			</div>
 			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
 				<div>
-					标题：<input type="text" id="title" value="{{.Topic.Title}}" style="width:80%" />
+					标题：{{.Topic.Title}}
 				</div>
-				内容：
-					{{.Topic.Content}}
-				用户：{{.Topic.UserInfo.UserName}}
-				时间：{{.Topic.CreateDate}}
+				<div>
+					用户：{{.Topic.UserInfo.UserName}}
+				</div>
+				<div>
+					内容：{{.Topic.Content}}
+				</div>
+				<div>
+					时间：{{.Topic.CreateDate}}
+				</div>
 			</div>
 			<div>
 				评论：
+				{{range .Topic.Comments}}
+					<div>
+						用户：{{.UserInfo.UserName}},内容：{{.Text}},
+						时间：{{.CreateDate}}
+					</div>
+				{{end}}
 				<p>
 					<textarea id="comment" rows="10" style="width:100%" ></textarea>
 				</p>

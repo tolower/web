@@ -72,10 +72,19 @@ func GetUserInfo(id int) (UserInfo, error) {
 func GetTopic(id int) (Topic, error) {
 	o := orm.NewOrm()
 	topic := Topic{Id: id}
-	err := o.Read(&topic)
-	if topic.UserInfo != nil {
-		o.Read(topic.UserInfo)
-	}
+	//RelatedSel关联查询,关联查询会对表做关联，表数据量太多的话，性能可能会差
+	//可以单表查询，然后把查询结果直接放进对象的相应属性中
+	err := o.QueryTable("topic").Filter("Id", id).RelatedSel().One(&topic)
+	_, err = o.QueryTable("comment").Filter("topic_id", topic.Id).RelatedSel().All(&topic.Comments)
+	/*
+		err := o.Read(&topic)
+		if topic.UserInfo != nil {
+			o.Read(topic.UserInfo)
+		}
+		if topic.Comments !=nil{
+			o.Read
+		}
+	*/
 	return topic, err
 }
 
