@@ -13,7 +13,10 @@
 				</div>
 			</div>
 			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
-				内容区
+				<div>
+					标题：<input type="text" id="title" style="width:80%" />
+				</div>
+				内容
 				<p>
 					<textarea id="content" rows="10" style="width:100%" ></textarea>
 				</p>
@@ -43,8 +46,9 @@
 		})
 		$("#add").click(function(){
 			var content=$("#content").val();
+			var title=$("#title").val();
 			var url=baseUrl+"/topic";
-			$.post(url,{content:content},function(result){
+			$.post(url,{content:content,title:title},function(result){
 				if(result.msg=="success"){
 					alert("发表成功!");
 					window.location.href=baseUrl;
