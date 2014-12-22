@@ -16,12 +16,13 @@
 				<div>
 					标题：<input type="text" id="title" style="width:80%" />
 				</div>
-				内容
+				内容：
 				<p>
 					<textarea id="content" rows="10" style="width:100%" ></textarea>
 				</p>
 				<div class="col-md-4">
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>
+				 	<button id="cancel" class="btn " type="button">取消</button>
 				</div>	
 			</div>
 			
@@ -56,6 +57,9 @@
 					alert("发表失败！");
 				}
 			});
+		});
+		$("#cancel").click(function(){
+			window.location.href=baseUrl;
 		});
 	</script>	
 	</body>
