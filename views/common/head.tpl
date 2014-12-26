@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 
-                <a class="navbar-brand"  href="#">网站Logo</a>
+                <a class="navbar-brand"  href="/">网站Logo</a>
                 <a class="navbar-brand navbar-right"  href="#">主页</a>
             </div>
         </nav>

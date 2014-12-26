@@ -14,31 +14,39 @@
 			</div>
 			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
 				<div>
-					标题：{{.Topic.Title}}
+					<h2>{{.Topic.Title}}</h2>
 				</div>
 				<div>
-					用户：{{.Topic.UserInfo.UserName}}
+					用户
+					<a href="/user?id={{.Topic.UserInfo.Id}}">{{.Topic.UserInfo.UserName}}</a>
+					发表于{{date .Topic.CreateDate "Y-m-d H:i:s"}}
 				</div>
 				<div>
 					内容：{{.Topic.Content}}
 				</div>
 				<div>
-					时间：{{.Topic.CreateDate}}
+					相关
 				</div>
 			</div>
 			<div>
-				评论：
+				<h4>评论：</h4>
 				{{range .Topic.Comments}}
 					<div style="border:thin solid #6cf;margin-top:15px">
-						用户：{{.UserInfo.UserName}},内容：{{.Text}},
-						时间：{{.CreateDate}}
+						<div>
+							<a href="/user?id={{.UserInfo.Id}}">{{.UserInfo.UserName}}</a>
+							{{date .CreateDate "Y-m-d H:i:s"}}
+						</div>
+						<div>
+							{{.Text}},
+						</div>
 					</div>
 				{{end}}
-				<p>
+				<div style="margin-top:15px">
 					<textarea id="comment" rows="5" style="width:100%" ></textarea>
-				</p>
+				</div>
 				<div class="col-md-4">
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>
+					<button class="btn" onclick="history.go(-1)" >返回</button>
 				</div>	
 			</div>
 		</div>
