@@ -3,9 +3,9 @@
 
 <div class="container-fluid" style="width:70%">
 	<div class="row-fluid">
-		<div class="col-md-9"  style="border:thin solid #6cf">
+		<div class="col-md-9"  style="border:thin solid #fff">
 			<div class="col-md-12">
-				<div class="row" style="border:thin solid #0f0">
+				<div class="row" style="border:thin solid #fff">
 					<div class="col-md-8">
 						<p><h2>如果你对未来的公司有疑问或者对现在的公司有话要说，那么现在请你勇敢的讲出来<h2></p>
 					</div>
@@ -14,24 +14,28 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12"  style="border:thin solid #f00;height:100%">
-				内容区
-				{{range .Topics}}
-					<div style="margin-top:15px;background-color:#eee">
-						<div>标题：<a href="/topic?id={{.Id}}" >{{.Title}}</a></div>
-						<div>
-							内容摘要：{{.Content}}
-						</div>
+			{{range .Topics}}
+				<div class="col-md-12"  style="border:thin solid #fff;margin-top:5px;height:100%;background-color:#eff">
+					<div class="col-md-1" style="margin-top:15px;" >
+						<img src="http://tb.himg.baidu.com/sys/portrait/item/57346c6f7765725f73636f72696e674d0f"
+						 style="width:50px;height:50px;margin-left:0px" />
+					</div>
+					<div class="col-md-11" style="margin-top:15px">
 						<div>
 							<a href="/user?id={{.UserInfo.Id}}">{{.UserInfo.UserName}}</a>
 							发表于{{date .CreateDate "Y-m-d H:i:s"}}
 						</div>
+						<div><h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></div></h4>
+						<div>
+							内容摘要：{{.Content}}
+						</div>
+						
 					</div>
-				{{end}}
-			</div>
+				</div>
+			{{end}}
 		</div>
 		<!--右侧信息-->
-		<div class="col-md-3" style="border:thin solid #6cf">
+		<div class="col-md-3" style="border:thin solid #fff">
 			{{template "common/right.tpl" .}}
 		</div>
 	</div>

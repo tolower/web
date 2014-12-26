@@ -20,7 +20,9 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 
-                <a class="navbar-brand" style="margin-left:200px"  href="/">网站Logo</a>
+                <a class="navbar-brand" style="margin-left:200px"  href="/">
+					<img src="http://www.baidu.com/img/bdlogo.png" style="height:30px" />
+				</a>
 				<form class="navbar-form navbar-left" role="search">
 			        <div class="form-group">
 			          <input type="text" class="form-control" placeholder="关键字">
