@@ -12,7 +12,7 @@
 					
 				</div>
 			</div>
-			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
+			<div class="col-md-12"  style="border:thin solid #f00;height:500px;margin-top:15px">
 				<div>
 					标题：<input type="text" id="title" style="width:80%" />
 				</div>

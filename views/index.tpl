@@ -10,14 +10,14 @@
 						<p><h2>如果你对未来的公司有疑问或者对现在的公司有话要说，那么现在请你勇敢的讲出来<h2></p>
 					</div>
 					<div class="col-md-4">
-					 	<a href="/add" class="btn btn-primary " type="button">让我来说</a>
+					 	<a href="/add" class="btn btn-primary btn-lg " style="margin-top:30px " type="button">让我来说</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12"  style="border:thin solid #f00;height:500px">
+			<div class="col-md-12"  style="border:thin solid #f00;height:100%">
 				内容区
 				{{range .Topics}}
-					<div style="border:thin solid #6cf;margin-top:15px;background-color:#eee">
+					<div style="margin-top:15px;background-color:#eee">
 						<div>标题：<a href="/topic?id={{.Id}}" >{{.Title}}</a></div>
 						<div>
 							内容摘要：{{.Content}}
