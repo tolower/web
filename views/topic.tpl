@@ -46,7 +46,7 @@
 				</div>
 				<div class="col-md-4">
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>
-					<button class="btn" onclick="history.go(-1)" >返回</button>
+					<button class="btn btn-default" onclick="history.go(-1)" >返回</button>
 				</div>	
 			</div>
 		</div>

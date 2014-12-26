@@ -20,7 +20,13 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 
-                <a class="navbar-brand"  href="/">网站Logo</a>
-                <a class="navbar-brand navbar-right"  href="#">主页</a>
+                <a class="navbar-brand" style="margin-left:200px"  href="/">网站Logo</a>
+				<form class="navbar-form navbar-left" role="search">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="关键字">
+			        </div>
+			        <a type="submit" class="btn btn-default" href="/search">搜索</a>
+			    </form>
+                <a class="navbar-brand navbar-right"  href="/">主页</a>
             </div>
         </nav>

@@ -3,10 +3,11 @@
 	<div class="row-fluid"  style="border:thin solid #0f0;height:200px">
 		<p><h4>众人说=大家一起来吐槽</h4></p>
 		<span id="qqLoginBtn"></span>
+		
 	</div>
 	<!--最新热贴 -->
 	<div class="row-fluid" style="border:thin solid #0f0;height:200px">
-		<div>最新热贴</div>
+		<div><h5><b>最新热贴</b></h5></div>
 		<ul >
           <li>帖子一</li>
           <li>帖子一</li>
@@ -20,7 +21,7 @@
 	</div>
 	<!--热门公司 -->
 	<div class="row-fluid" style="border:thin solid #0f0;height:200px">
-		<div>热门公司</div>
+		<div><h5><b>热门公司</b></h5></div>
 		<button class="btn btn-primary btn-sm " type="button">A公司</button>
 		<button class="btn btn-primary btn-sm " type="button">A公司</button>
 		<button class="btn btn-primary btn-sm " type="button">A公司</button>
