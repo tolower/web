@@ -25,8 +25,8 @@
 							<a href="/user?id={{.UserInfo.Id}}">{{.UserInfo.UserName}}</a>
 							发表于{{date .CreateDate "Y-m-d H:i:s"}}
 						</div>
-						<div><h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></div></h4>
-						<div>
+						<div style="word-break: break-all;"><h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></div></h4>
+						<div style="word-break: break-all;">
 							内容摘要：{{.Content}}
 						</div>
 						

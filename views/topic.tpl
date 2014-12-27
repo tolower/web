@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="col-md-12"  style="border:thin solid #f0f;height:100%">
-				<div>
+				<div style="word-break: break-all;">
 					<h3>{{.Topic.Title}}</h3>
 				</div>
 				<div>
@@ -21,7 +21,7 @@
 					<a href="/user?id={{.Topic.UserInfo.Id}}">{{.Topic.UserInfo.UserName}}</a>
 					发表于{{date .Topic.CreateDate "Y-m-d H:i:s"}}
 				</div>
-				<div>
+				<div style="word-break: break-all;">
 					内容：{{.Topic.Content}}
 				</div>
 				<div>
@@ -40,7 +40,7 @@
 								<a href="/user?id={{.UserInfo.Id}}">{{.UserInfo.UserName}}</a>
 								{{date .CreateDate "Y-m-d H:i:s"}}
 							</div>
-							<div>
+							<div style="word-break: break-all;">
 								{{.Text}},
 							</div>
 						</div>
