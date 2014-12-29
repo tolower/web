@@ -21,6 +21,9 @@
 					<textarea id="content" rows="10" style="width:100%" ></textarea>
 				</p>
 				<div class="col-md-4">
+					<div id="notice" class="alert alert-success">
+						发表成功！
+					</div>
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>
 				 	<button id="cancel" class="btn " type="button">取消</button>
 				</div>	
@@ -36,6 +39,7 @@
 	<!--底部-->  	
 	{{template "common/foot.tpl" .}}
 	<script>
+		$("#notice").hide();
 		var baseUrl="http://localhost:8080";
 		$(function(){
 			$("#login").click(function(){
@@ -51,7 +55,8 @@
 			var url=baseUrl+"/topic";
 			$.post(url,{content:content,title:title},function(result){
 				if(result.msg=="success"){
-					alert("发表成功!");
+					//alert("发表成功!");
+					$("#notice").show();
 					window.location.href=baseUrl;
 				}else{
 					alert("发表失败！");

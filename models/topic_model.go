@@ -45,10 +45,10 @@ func AddTopic(topic *Topic) error {
 	return err
 }
 
-//显示所有帖子
+//显示所有帖子,排序：按照发帖时间降序排列，最新发表的内容在最前面
 func QueryAllTopic() ([]*Topic, error) {
 	o := orm.NewOrm()
 	var topics []*Topic
-	_, err := o.QueryTable("topic").RelatedSel().All(&topics)
+	_, err := o.QueryTable("topic").Limit(3, 0).OrderBy("-create_date").RelatedSel().All(&topics)
 	return topics, err
 }

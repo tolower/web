@@ -3,7 +3,10 @@
 
 <div class="container-fluid" style="width:70%">
 	<div class="row-fluid">
-		<div class="col-md-9"  style="border:thin solid #fff">
+		<div class="col-md-9" id="content"  style="border:thin solid #fff">
+			<a id="append" class="btn btn-sm" >append</a>
+			<input id="lastTime" type="hidden" value="{{.LastTime}}"/>
+			<input id="firstTime" type="hidden" value="{{.FirstTime}}"/>
 			<div class="col-md-12">
 				<div class="row" style="border:thin solid #fff">
 					<div class="col-md-8">
@@ -25,7 +28,9 @@
 							<a href="/user?id={{.UserInfo.Id}}">{{.UserInfo.UserName}}</a>
 							发表于{{date .CreateDate "Y-m-d H:i:s"}}
 						</div>
-						<div style="word-break: break-all;"><h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></div></h4>
+						<div style="word-break: break-all;">
+							<h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></h4>
+						</div>
 						<div style="word-break: break-all;">
 							内容摘要：{{.Content}}
 						</div>
@@ -53,6 +58,30 @@
 			});
 			
 		})
+		//加载数据
+		$("#append").click(function(){
+			var lastTime=$("#lastTime").val();
+			$.post("/",{lastTime:lastTime},function(result){
+				console.log(result);
+			});
+			/*
+			$("#content").append("<div class='col-md-12'  style='border:thin solid #fff;margin-top:5px;height:100%;background-color:#eff'>"+
+				"<div class='col-md-1' style='margin-top:15px;' >"+
+					"<img src='http://tb.himg.baidu.com/sys/portrait/item/57346c6f7765725f73636f72696e674d0f'"+
+					 "style='width:50px;height:50px;margin-left:0px' />"+
+				"</div>"+
+				"<div class='col-md-11' style='margin-top:15px'>"+
+					"<div>"+
+						"<a href='/user?id={{.UserInfo.Id}}'>UserName</a>"+
+							"发表于}"+
+					"</div>"+
+					"<div style='word-break: break-all;'><h4><a href='/topic?id={{.Id}}' title='{{.Title}}' >{{.Title}} </a></h4></div>"+
+					"<div style='word-break: break-all;'>内容摘要：{{.Content}}</div>"+
+					"</div>"+
+				"</div>"+
+			"</div>");
+			*/
+		});
 	</script>	
 	</body>
 </html>

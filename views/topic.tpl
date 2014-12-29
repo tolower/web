@@ -41,7 +41,7 @@
 								{{date .CreateDate "Y-m-d H:i:s"}}
 							</div>
 							<div style="word-break: break-all;">
-								{{.Text}},
+								{{.Text}}
 							</div>
 						</div>
 					</div>
@@ -62,6 +62,9 @@
 					
 				</div>
 				<div class="col-md-11">
+					<div id="notice" class="alert alert-success">
+						发表成功！
+					</div>
 				 	<button id="add" class="btn btn-primary " type="button">发表</button>
 					<button class="btn btn-default" onclick="history.go(-1)" >返回</button>
 				</div>
@@ -78,20 +81,29 @@
 	{{template "common/foot.tpl" .}}
 	<script>
 		var baseUrl="http://localhost:8080";
-		
+		$("#notice").hide();
 		$("#add").click(function(){
 			var comment=$("#comment").val();
 			var topicId='{{.Topic.Id}}';
 			var url=baseUrl+"/comment";
 			$.post(url,{topicId:topicId,comment:comment},function(result){
 				if(result.msg=="success"){
-					alert("发表成功!");
+					//alert("发表成功!");
+					//显示提示
+					$("#notice").show();
+					/*
+					setTimeout(function(){
+						$("#notice").hide();	
+					},3000);
+					*/
 					window.location.reload();
 				}else{
 					alert("发表失败！");
 				}
 			});
 		});
+		
+		
 	</script>	
 	</body>
 </html>
