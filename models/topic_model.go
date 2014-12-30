@@ -52,3 +52,11 @@ func QueryAllTopic() ([]*Topic, error) {
 	_, err := o.QueryTable("topic").Limit(3, 0).OrderBy("-create_date").RelatedSel().All(&topics)
 	return topics, err
 }
+
+//分页查询帖子
+func QueryTopicsWithPage(lastTime string, pageSize int) ([]*Topic, error) {
+	o := orm.NewOrm()
+	var topics []*Topic
+	_, err := o.QueryTable("topic").Filter("create_date__lt", lastTime).Limit(pageSize, 0).OrderBy("-create_date").RelatedSel().All(&topics)
+	return topics, err
+}

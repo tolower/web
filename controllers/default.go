@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/astaxie/beego"
 	"strconv"
+	"time"
 	. "web/models"
 )
 
@@ -36,12 +37,19 @@ func (this *MainController) Get() {
 func (this *MainController) Post() {
 	lastTime := this.GetString("lastTime")
 	pageSizeStr := this.GetString("pageSize")
-	pageSize := strconv.Atoi(pageSizeStr)
+	pageSize, _ := strconv.Atoi(pageSizeStr)
 	//查询数据
 	topics, err := QueryTopicsWithPage(lastTime, pageSize)
 	if err != nil {
 		fmt.Println(err)
 	}
+	length := len(topics)
+	var LastTime time.Time
+	if length > 0 {
+		LastTime = topics[length-1].CreateDate
+	}
+	this.Data["json"] = map[string]interface{}{"topics": topics, "lastTime": LastTime}
+	this.ServeJson()
 }
 
 //发表新帖子
