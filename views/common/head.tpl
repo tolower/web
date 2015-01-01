@@ -13,7 +13,12 @@
 	    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
         data-appid="101177848" data-redirecturi="http://lower.koding.io:8080"
-		 charset="utf-8"  data-callback="true"></script>
+		 	charset="utf-8"  data-callback="true"></script>
+		<link href="js/external/google-code-prettify/prettify.css" rel="stylesheet">
+		<script src="js/bootstrap-wysiwyg.js" ></script>
+	 	<script src="js/external/google-code-prettify/prettify.js"></script>
+		<script src="js/external/jquery.hotkeys.js"></script>
+		<link href="js/index.css" rel="stylesheet">
 	</head>
   	<body>
   		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">

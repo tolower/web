@@ -1,9 +1,9 @@
 <!--头部，菜单-->
 {{template "common/head.tpl" .}}
 
-<div class="container-fluid" style="width:70%">
+<div class="container-fluid" style="width:80%">
 	<div class="row-fluid">
-		<div class="col-md-9"  style="border:thin solid #fff">
+		<div class="col-md-8"  style="border:thin solid #fff">
 			<div class="col-md-12">
 				<div class="row" style="border:thin solid #fff">
 					<div class="col-md-8">
@@ -22,7 +22,7 @@
 					发表于{{date .Topic.CreateDate "Y-m-d H:i:s"}}
 				</div>
 				<div style="word-break: break-all;">
-					内容：{{.Topic.Content}}
+					内容：<pre>{{.Topic.Content |str2html}}</pre>
 				</div>
 				<div>
 					相关
@@ -72,7 +72,7 @@
 		</div>
 		
 		<!--右侧信息-->
-		<div class="col-md-3" style="border:thin solid #fff">
+		<div class="col-md-4" style="border:thin solid #fff">
 			{{template "common/right.tpl" .}}
 		</div>
 	</div>

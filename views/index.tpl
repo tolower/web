@@ -1,9 +1,9 @@
 <!--头部，菜单-->
 {{template "common/head.tpl" .}}
 
-<div class="container-fluid" style="width:70%">
+<div class="container-fluid" style="width:80%">
 	<div class="row-fluid">
-		<div class="col-md-9" id="content"  style="border:thin solid #fff">
+		<div class="col-md-8" id="content"  style="border:thin solid #fff">
 			<a id="append" class="btn btn-primary btn-sm" >ajax继续加载数据</a>
 			<input id="lastTime" type="hidden" value="{{.LastTime}}"/>
 			<input id="firstTime" type="hidden" value="{{.FirstTime}}"/>
@@ -32,7 +32,7 @@
 							<h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></h4>
 						</div>
 						<div style="word-break: break-all;">
-							内容摘要：{{.Content}}
+							内容摘要：{{.Content|html2str}}
 						</div>
 						
 					</div>
@@ -40,7 +40,7 @@
 			{{end}}
 		</div>
 		<!--右侧信息-->
-		<div class="col-md-3" style="border:thin solid #fff">
+		<div class="col-md-4" style="border:thin solid #fff">
 			{{template "common/right.tpl" .}}
 		</div>
 	</div>
@@ -64,6 +64,14 @@
 			var time=datetime.split("T")[1].split("+")[0];
 			return date+" "+time;
 		}
+		//过滤HTML标签以及&nbsp;
+		function removeHTMLTag(str) {
+            str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+            str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+            //str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+            str=str.replace(/&nbsp;/ig,'');//去掉&nbsp;
+            return str;
+    	}
 		//加载数据
 		$("#append").click(function(){
 			var lastTime=$("#lastTime");
@@ -85,7 +93,7 @@
 									"发表于"+toDate(e.CreateDate)+
 							"</div>"+
 							"<div style='word-break: break-all;'><h4><a href='/topic?id="+e.Id+"' title='"+e.Title+"' >"+e.Title+" </a></h4></div>"+
-							"<div style='word-break: break-all;'>内容摘要："+e.Content+"</div>"+
+							"<div style='word-break: break-all;'>内容摘要："+removeHTMLTag(e.Content)+"</div>"+
 							"</div>"+
 						"</div>"+
 					"</div>");
