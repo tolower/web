@@ -29,6 +29,7 @@ func (this *MainController) Get() {
 		this.Data["FirstTime"] = topics[0].CreateDate
 	}
 	//
+	fmt.Println("[log]:access :/")
 	this.Data["Title"] = "主页"
 	this.TplNames = "index.tpl"
 }

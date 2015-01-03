@@ -18,6 +18,8 @@
 		<script src="js/bootstrap-wysiwyg.js" ></script>
 	 	<script src="js/external/google-code-prettify/prettify.js"></script>
 		<script src="js/external/jquery.hotkeys.js"></script>
+		<script src="js/jquery.cookie.js" ></script>
+		<script src="js/json2.js" ></script>
 		<link href="js/index.css" rel="stylesheet">
 	</head>
   	<body>
