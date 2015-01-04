@@ -2,7 +2,7 @@
 
 <html>
   	<head>
-    	<title>众人说|{{.Title}}</title>
+    	<title>众人说丨{{.Title}}</title>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta property="qc:admins" content="3302216277526374167617" />
 		<!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -18,9 +18,7 @@
 		<script src="js/bootstrap-wysiwyg.js" ></script>
 	 	<script src="js/external/google-code-prettify/prettify.js"></script>
 		<script src="js/external/jquery.hotkeys.js"></script>
-		<script src="js/jquery.cookie.js" ></script>
 		<script src="js/json2.js" ></script>
-		<script src="js/js/plupload.full.min.js"></script>
 		<script src="js/qiniu.js"></script>
 		<link href="js/index.css" rel="stylesheet">
 	</head>

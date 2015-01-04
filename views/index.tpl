@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			{{range .Topics}}
-				<div class="col-md-12"  style="border:thin solid #fff;margin-top:5px;height:100%;background-color:#eff">
+				<div class="col-md-12"  style="border:thin solid #9ff;margin-top:5px;height:100%;background-color:#eff">
 					<div class="col-md-1" style="margin-top:15px;" >
 						<img src="http://tb.himg.baidu.com/sys/portrait/item/57346c6f7765725f73636f72696e674d0f"
 						 style="width:50px;height:50px;margin-left:0px" />
@@ -46,7 +46,6 @@
 	</div>
 	<div>
 	<a id="append" class="btn btn-primary btn-sm" >ajax继续加载数据</a>
-	<input id="files" type="file" />
 	</div>
 </div>
 	<!--底部-->  	
@@ -112,7 +111,7 @@
 		function appendList(list){
 			$.each(list,function(i,e){
 				//新数据接在原内容之后
-				$("#content").append("<div class='col-md-12'  style='border:thin solid #fff;margin-top:5px;height:100%;background-color:#eff'>"+
+				$("#content").append("<div class='col-md-12'  style='border:thin solid #9ff;margin-top:5px;height:100%;background-color:#eff'>"+
 					"<div class='col-md-1' style='margin-top:15px;' >"+
 						"<img src='http://tb.himg.baidu.com/sys/portrait/item/57346c6f7765725f73636f72696e674d0f'"+
 						 "style='width:50px;height:50px;margin-left:0px' />"+

@@ -12,18 +12,14 @@
 					
 				</div>
 			</div>
-			<div class="col-md-12"  style="border:thin solid #fff;height:500px;margin-top:15px">
+			<div class="col-md-12"  style="border:thin solid #fff;height:500px;margin-top:15px;">
 				<div>
-					标题：<input type="text" id="title" style="width:80%" />
+					标题：<input type="text" id="title" style="width:90%" />
 				</div>
 				<!-- 内容编辑器（bootstrap-wysiwyg） -->
 				{{template "common/editor.tpl" .}}
-				<!--
-				<p>
-					<textarea id="content" rows="10" style="width:100%" ></textarea>
-				</p>
-				-->
-				<div class="col-md-4">
+				
+				<div class="col-md-4" style="margin-top:15px">
 					<div id="notice" class="alert alert-success">
 						发表成功！
 					</div>
