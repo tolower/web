@@ -18,4 +18,5 @@ func init() {
 	beego.Router("/comment", &controllers.CommentController{})
 	beego.Router("/user", &controllers.UserController{})
 	beego.Router("/search", &controllers.SearchController{})
+	beego.Router("/uptoken", &controllers.UploadController{})
 }

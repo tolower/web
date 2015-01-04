@@ -3,17 +3,7 @@
 /*jslint browser:true*/
 (function ($) {
 	'use strict';
-	var readFileIntoDataUrl = function (fileInfo) {
-		var loader = $.Deferred(),
-			fReader = new FileReader();
-		fReader.onload = function (e) {
-			loader.resolve(e.target.result);
-		};
-		fReader.onerror = loader.reject;
-		fReader.onprogress = loader.notify;
-		fReader.readAsDataURL(fileInfo);
-		return loader.promise();
-	};
+	
 	$.fn.cleanHtml = function () {
 		var html = $(this).html();
 		return html && html.replace(/(<br>|\s|<div><br><\/div>|&nbsp;)*$/, '');
@@ -80,12 +70,40 @@
 					selection.addRange(selectedRange);
 				}
 			},
+			readFileIntoDataUrl = function (fileInfo) {
+				var loader = $.Deferred(),
+					fReader = new FileReader();
+				fReader.onload = function (e) {
+					loader.resolve(e.target.result);
+				};
+				fReader.onerror = loader.reject;
+				fReader.onprogress = loader.notify;
+				fReader.readAsDataURL(fileInfo);
+				//添加图片时，直接把图片上传到七牛云，然后返回图片的地址
+				var file_url;
+				$.ajax({
+					url:"/uptoken",
+					type:"post",
+					async:false,
+					success:function(result){
+						var images = qiniu.bucket('lower.u', {
+					        putToken: result.uptoken
+					    });
+						//putFile方法是异步执行，上传成功后，直接在回调方法里面把图片插入到编辑器中
+			      		images.putFile(fileInfo.name, fileInfo, function(err, reply) {
+				        	file_url=images.key(fileInfo.name).url();
+							execCommand('insertimage', file_url);
+				      	});
+					}
+				});
+				return file_url;
+			},
 			insertFiles = function (files) {
 				editor.focus();
 				$.each(files, function (idx, fileInfo) {
 					if (/^image\//.test(fileInfo.type)) {
 						$.when(readFileIntoDataUrl(fileInfo)).done(function (dataUrl) {
-							execCommand('insertimage', dataUrl);
+							//execCommand('insertimage', dataUrl);
 						}).fail(function (e) {
 							options.fileUploadError("file-reader", e);
 						});

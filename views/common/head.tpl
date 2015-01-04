@@ -20,6 +20,8 @@
 		<script src="js/external/jquery.hotkeys.js"></script>
 		<script src="js/jquery.cookie.js" ></script>
 		<script src="js/json2.js" ></script>
+		<script src="js/js/plupload.full.min.js"></script>
+		<script src="js/qiniu.js"></script>
 		<link href="js/index.css" rel="stylesheet">
 	</head>
   	<body>

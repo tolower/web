@@ -46,6 +46,7 @@
 	</div>
 	<div>
 	<a id="append" class="btn btn-primary btn-sm" >ajax继续加载数据</a>
+	<input id="files" type="file" />
 	</div>
 </div>
 	<!--底部-->  	
@@ -138,6 +139,7 @@
 		}
 		//下拉到底部时请求加载数据
 		$("#append").click(function(){
+			/*
 			var lastTime=window.sessionStorage.lastTime;
 			var pageSize=4//每次请求加载的数据量
 			$.post("/",{lastTime:lastTime,pageSize:pageSize},function(result){
@@ -154,7 +156,11 @@
 				window.sessionStorage.setItem("list",JSON.stringify(list));
 				appendList(result.topics);
 			});
+			*/
+			
+			
 		});
+		
 	</script>	
 	</body>
 </html>
