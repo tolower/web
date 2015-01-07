@@ -21,8 +21,8 @@
 					<a href="/user?id={{.Topic.UserInfo.Id}}">{{.Topic.UserInfo.UserName}}</a>
 					发表于{{date .Topic.CreateDate "Y-m-d H:i:s"}}
 				</div>
-				<div style="word-break: break-all;">
-					内容：<pre>{{.Topic.Content |str2html}}</pre>
+				<div style="word-break: break-all;width:100%">
+					内容：<pre >{{.Topic.Content |str2html}}</pre>
 				</div>
 				<div>
 					相关

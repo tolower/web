@@ -38,10 +38,18 @@ func (this *TopicController) Post() {
 	topic.UserInfo = &user
 	//fmt.Println("topic:", topic)
 	msg := "success"
-	err := AddTopic(&topic)
-	if err != nil {
-		fmt.Println(err)
-		msg = "failed"
+	/*
+		err := AddTopic(&topic)
+		if err != nil {
+			fmt.Println(err)
+			msg = "failed"
+		}
+	*/
+	for i := 0; i < 100000; i++ {
+		t := title + strconv.Itoa(i)
+		topic.Title = t
+		topic.CreateDate = topic.CreateDate.AddDate(0, 0, 1)
+		AddTopic(&topic)
 	}
 	//
 	this.Data["json"] = map[string]interface{}{"msg": msg}

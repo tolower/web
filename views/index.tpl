@@ -75,7 +75,7 @@
 			$(window).scroll(function () {
 			    if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
 					var lastTime=window.sessionStorage.lastTime;
-					var pageSize=4//每次请求加载的数据量
+					var pageSize=10//每次请求加载的数据量
 					$.post("/",{lastTime:lastTime,pageSize:pageSize},function(result){
 						//更新数据的最后一条时间，用于每次请求加载下一页数据
 						window.sessionStorage.lastTime=result.lastTime;
