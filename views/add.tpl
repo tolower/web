@@ -50,7 +50,6 @@
 		})
 		$("#add").click(function(){
 			var content=$("#editor").html();//$("#content").val();
-			alert(content);
 			var title=$("#title").val();
 			var url=baseUrl+"/topic";
 			$.post(url,{content:content,title:title},function(result){

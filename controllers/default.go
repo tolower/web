@@ -14,7 +14,7 @@ type MainController struct {
 
 func (this *MainController) Get() {
 	//查询帖子列表
-	topics, err := QueryAllTopic()
+	topics, err := QueryAllTopic(3)
 	fmt.Println(*(topics[0].UserInfo))
 	if err != nil {
 		fmt.Println(err)

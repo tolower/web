@@ -22,10 +22,10 @@
 					发表于{{date .Topic.CreateDate "Y-m-d H:i:s"}}
 				</div>
 				<div style="word-break: break-all;width:100%">
-					内容：<pre >{{.Topic.Content |str2html}}</pre>
+					<pre >{{.Topic.Content |str2html}}</pre>
 				</div>
 				<div>
-					相关
+					
 				</div>
 			</div>
 			{{range .Topic.Comments}}

@@ -15,6 +15,7 @@ func init() {
 	beego.Router("/add", &controllers.MainController{}, "get:Add")
 	beego.Router("/login", &controllers.LoginController{})
 	beego.Router("/topic", &controllers.TopicController{})
+	beego.Router("/top10hot", &controllers.TopicController{}, "post:GetTop10HotTopic")
 	beego.Router("/comment", &controllers.CommentController{})
 	beego.Router("/user", &controllers.UserController{})
 	beego.Router("/search", &controllers.SearchController{})

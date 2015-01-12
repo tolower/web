@@ -31,27 +31,30 @@ func (this *TopicController) Post() {
 	content := this.GetString("content")
 	title := this.GetString("title")
 	creatDate := time.Now()
+
 	//fmt.Println("content:", content)
 	//fmt.Println("createDate:", creatDate)
-	topic := Topic{Content: content, CreateDate: creatDate, Catalog: "吐槽", Title: title}
+	topic := Topic{Content: content, CreateDate: creatDate, Catalog: "吐槽", Title: title, VisitCount: 0}
 	user := UserInfo{Id: 1, UserName: "lower"}
 	topic.UserInfo = &user
 	//fmt.Println("topic:", topic)
 	msg := "success"
-	/*
-		err := AddTopic(&topic)
-		if err != nil {
-			fmt.Println(err)
-			msg = "failed"
-		}
-	*/
-	for i := 0; i < 100000; i++ {
-		t := title + strconv.Itoa(i)
-		topic.Title = t
-		topic.CreateDate = topic.CreateDate.AddDate(0, 0, 1)
-		AddTopic(&topic)
+	err := AddTopic(&topic)
+	if err != nil {
+		fmt.Println(err)
+		msg = "failed"
 	}
 	//
 	this.Data["json"] = map[string]interface{}{"msg": msg}
+	this.ServeJson()
+}
+
+//获取最新热帖
+func (this *TopicController) GetTop10HotTopic() {
+	topics, err := QueryTop10HotTopics()
+	if err != nil {
+		fmt.Println(err)
+	}
+	this.Data["json"] = map[string]interface{}{"topics": topics}
 	this.ServeJson()
 }
