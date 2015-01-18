@@ -19,6 +19,7 @@
 		<script src="js/json2.js" ></script>
 		<script src="js/qiniu.js"></script>
 		<script src="js/layer/layer.min.js"></script>
+		<script src="js/bootstrap3-typeahead.min.js"></script>
 		<link href="js/index.css" rel="stylesheet">
 	</head>
   	<body>

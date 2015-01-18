@@ -5,16 +5,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-//company
-type Company struct {
-	Id      int
-	Name    string
-	Remark  string
-	Address string
-	Phone   string
-	Email   string
-}
-
 //初始化
 func init() {
 	//注册model

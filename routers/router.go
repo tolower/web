@@ -20,4 +20,12 @@ func init() {
 	beego.Router("/user", &controllers.UserController{})
 	beego.Router("/search", &controllers.SearchController{})
 	beego.Router("/uptoken", &controllers.UploadController{})
+	beego.Router("/company", &controllers.CompanyController{})
+	//添加模板函数
+	beego.AddFuncMap("strlen", strLen)
+}
+
+//
+func strLen(str string) int {
+	return len(str)
 }

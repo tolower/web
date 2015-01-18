@@ -104,6 +104,8 @@
 					if (/^image\//.test(fileInfo.type)) {
 						$.when(readFileIntoDataUrl(fileInfo)).done(function (dataUrl) {
 							//execCommand('insertimage', dataUrl);
+							//$("#editor").find("img").attr("style","width:100%");
+							$("#editor").find("img").attr("style","width:100%");
 						}).fail(function (e) {
 							options.fileUploadError("file-reader", e);
 						});

@@ -32,7 +32,7 @@
 							<h4><a href="/topic?id={{.Id}}" title="{{.Title}}" >{{.Title}} </a></h4>
 						</div>
 						<div style="word-break: break-all;">
-							内容摘要：{{.Content|html2str}}
+							{{substr .Content 0 100 |html2str}}……
 						</div>
 						
 					</div>
@@ -99,13 +99,13 @@
 			var time=datetime.split("T")[1].split("+")[0];
 			return date+" "+time;
 		}
-		//过滤HTML标签以及&nbsp;
+		//过滤HTML标签以及&nbsp;截取摘要一定长度字符
 		function removeHTMLTag(str) {
             str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
             str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
             //str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
             str=str.replace(/&nbsp;/ig,'');//去掉&nbsp;
-            return str;
+            return str.substr(0,100)+"……";
     	}
 		//
 		function appendList(list){
@@ -122,7 +122,7 @@
 								"发表于"+toDate(e.CreateDate)+
 						"</div>"+
 						"<div style='word-break: break-all;'><h4><a href='/topic?id="+e.Id+"' title='"+e.Title+"' >"+e.Title+" </a></h4></div>"+
-						"<div style='word-break: break-all;'>内容摘要："+removeHTMLTag(e.Content)+"</div>"+
+						"<div style='word-break: break-all;'>"+removeHTMLTag(e.Content)+"</div>"+
 						"</div>"+
 					"</div>"+
 				"</div>");

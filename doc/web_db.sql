@@ -33,21 +33,21 @@ CREATE TABLE `comment` (
   KEY `fk_comment_topic_user_info_id` (`user_info_id`),
   CONSTRAINT `fk_comment_topic_topic_id` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id`),
   CONSTRAINT `fk_comment_topic_user_info_id` FOREIGN KEY (`user_info_id`) REFERENCES `user_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `company` */
 
 DROP TABLE IF EXISTS `company`;
 
 CREATE TABLE `company` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(200) default NULL,
   `remark` varchar(500) default NULL,
   `address` varchar(200) default NULL,
   `phone` varchar(32) default NULL,
   `email` varchar(32) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `topic` */
 

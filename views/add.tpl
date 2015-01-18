@@ -5,16 +5,13 @@
 	<div class="row-fluid">
 		<div class="col-md-8"  style="border:thin solid #6cf">
 			<div class="col-md-12">
-				<div class="row" style="border:thin solid #0f0">
-					<div class="col-md-8">
-						<p><h2><h2></p>
-					</div>
-					
-				</div>
+				<div>相关公司：</div>
+				<div><input type="text" id="company" style="width:90%" data-provide="typeahead"/></div>
 			</div>
 			<div class="col-md-12"  style="border:thin solid #fff;height:500px;margin-top:15px;">
 				<div>
-					标题：<input type="text" id="title" style="width:90%" />
+					<div>标题：</div>
+					<div><input type="text" id="title" style="width:90%" /></div>
 				</div>
 				<!-- 内容编辑器（bootstrap-wysiwyg） -->
 				{{template "common/editor.tpl" .}}
@@ -64,6 +61,20 @@
 		});
 		$("#cancel").click(function(){
 			window.location.href=baseUrl;
+		});
+		//自动补全选择公司
+		$.get("/company",function(data){
+				console.log(data.companies);
+			$("#company").typeahead({
+				source:data.companies,
+				displayText:function(item){
+					return item.Name;
+				},
+				items:8,
+				afterSelect:function(item){
+					console.log(item);
+				}
+			});
 		});
 		
 	</script>	
