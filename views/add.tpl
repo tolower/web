@@ -5,13 +5,16 @@
 	<div class="row-fluid">
 		<div class="col-md-8"  style="border:thin solid #6cf">
 			<div class="col-md-12">
-				<div>相关公司：</div>
-				<div><input type="text" id="company" style="width:90%" data-provide="typeahead"/></div>
+				<div  class="col-md-10" id="companyList">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div><input type="text" id="company" style="width:100%" data-provide="typeahead"/></div>
 			</div>
 			<div class="col-md-12"  style="border:thin solid #fff;height:500px;margin-top:15px;">
 				<div>
 					<div>标题：</div>
-					<div><input type="text" id="title" style="width:90%" /></div>
+					<div><input type="text" id="title" style="width:100%" /></div>
 				</div>
 				<!-- 内容编辑器（bootstrap-wysiwyg） -->
 				{{template "common/editor.tpl" .}}
@@ -37,6 +40,7 @@
 	<script>
 		$("#notice").hide();
 		var baseUrl="http://localhost:8080";
+		var companyList=[];
 		$(function(){
 			$("#login").click(function(){
 				var url=baseUrl+"/login"
@@ -49,9 +53,8 @@
 			var content=$("#editor").html();//$("#content").val();
 			var title=$("#title").val();
 			var url=baseUrl+"/topic";
-			$.post(url,{content:content,title:title},function(result){
+			$.post("/topic",{content:content,title:title},function(result){
 				if(result.msg=="success"){
-					//alert("发表成功!");
 					$("#notice").show();
 					window.location.href=baseUrl;
 				}else{
@@ -64,7 +67,6 @@
 		});
 		//自动补全选择公司
 		$.get("/company",function(data){
-				console.log(data.companies);
 			$("#company").typeahead({
 				source:data.companies,
 				displayText:function(item){
@@ -72,7 +74,11 @@
 				},
 				items:8,
 				afterSelect:function(item){
-					console.log(item);
+					companyList.push(item.Id);
+					$("#companyList").append(
+						"<a class='btn btn-sm'>"+item.Name+"</a>"
+					);
+					$("#company").val("");
 				}
 			});
 		});
