@@ -43,10 +43,10 @@ func GetTopic(id int) (Topic, error) {
 }
 
 //添加帖子
-func AddTopic(topic *Topic) error {
+func AddTopic(topic *Topic) (int64, error) {
 	o := orm.NewOrm()
-	_, err := o.Insert(topic)
-	return err
+	id, err := o.Insert(topic)
+	return id, err
 }
 
 //显示所有帖子,排序：按照发帖时间降序排列，最新发表的内容在最前面

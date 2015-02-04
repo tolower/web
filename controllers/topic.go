@@ -30,6 +30,10 @@ func (this *TopicController) Get() {
 func (this *TopicController) Post() {
 	content := this.GetString("content")
 	title := this.GetString("title")
+	//获取多值/数组参数时，定义slice对象，用bind方法来获取
+	companyList := make([]int, 0, 2)
+	this.Ctx.Input.Bind(&companyList, "companyList")
+
 	creatDate := time.Now()
 
 	//fmt.Println("content:", content)
@@ -39,7 +43,8 @@ func (this *TopicController) Post() {
 	topic.UserInfo = &user
 	//fmt.Println("topic:", topic)
 	msg := "success"
-	err := AddTopic(&topic)
+	id, err := AddTopic(&topic)
+	addTopicCompanys(id, companyList)
 	if err != nil {
 		fmt.Println(err)
 		msg = "failed"
@@ -47,6 +52,14 @@ func (this *TopicController) Post() {
 	//
 	this.Data["json"] = map[string]interface{}{"msg": msg}
 	this.ServeJson()
+}
+
+//添加帖子与公司关系
+func addTopicCompanys(topicId int64, companyList []int) {
+	for i, v := range companyList {
+		fmt.Println("companyList", i, v)
+
+	}
 }
 
 //获取最新热帖
