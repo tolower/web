@@ -5,6 +5,8 @@
 用go+beego开发的
     
 beego开发参考：http://beego.me
+前端内容编辑器用了bootstrap-wysiwyg:https://github.com/mindmup/bootstrap-wysiwyg
+
 2.数据库说明：
 ---
 目前4个表，user_info（用户）、topic（帖子）、comment（评论）、company（公司），公司表暂时未使用。
