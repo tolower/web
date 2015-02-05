@@ -56,9 +56,13 @@ func (this *TopicController) Post() {
 
 //添加帖子与公司关系
 func addTopicCompanys(topicId int64, companyList []int) {
-	for i, v := range companyList {
-		fmt.Println("companyList", i, v)
-
+	for _, v := range companyList {
+		company := Company{Id: v}
+		refCompanyTopic := RefCompanyTopic{Company: &company, TopicId: int(topicId)}
+		err := AddRefCompanyTopic(&refCompanyTopic)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 }
 

@@ -53,9 +53,7 @@
 			var content=$("#editor").html();//$("#content").val();
 			var title=$("#title").val();
 			var url=baseUrl+"/topic";
-			var a=["a","b"];
-			alert(JSON.stringify(a));
-			$.post("/topic",{content:content,title:title,companyList:["a","b","c","d"]},function(result){
+			$.post("/topic",{content:content,title:title,companyList:companyList},function(result){
 				if(result.msg=="success"){
 					$("#notice").show();
 					window.location.href=baseUrl;

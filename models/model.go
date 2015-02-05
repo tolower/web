@@ -9,7 +9,7 @@ import (
 //初始化
 func init() {
 	//注册model
-	orm.RegisterModel(new(UserInfo), new(Topic), new(Company), new(Comment))
+	orm.RegisterModel(new(UserInfo), new(Topic), new(Company), new(Comment), new(RefCompanyTopic))
 	//注册驱动
 	orm.RegisterDriver("mysql", orm.DR_MySQL)
 	//注册数据库
