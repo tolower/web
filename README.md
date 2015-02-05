@@ -11,11 +11,11 @@ beego开发参考：http://beego.me
 前端添加公司信息时用到了自动补全插件Bootstrap-3-Typeahead：https://github.com/bassjobsen/Bootstrap-3-Typeahead
 2.数据库说明：
 ---
-目前4个表，user_info（用户）、topic（帖子）、comment（评论）、company（公司），公司表暂时未使用。
+目前5个表，user_info（用户）、topic（帖子）、comment（评论）、company（公司）、ref_company_topic（帖子公司关系表）。
 
 * 关系图：
 
-![](http://lower.u.qiniudn.com/db.png)
+![](http://lower.u.qiniudn.com/webdb.jpg)
 3.编译运行调试
 ---
 * 安装和配置go开发环境
@@ -25,6 +25,6 @@ beego开发参考：http://beego.me
 * 用git客户端拉取项目开发代码
 * 用bee工具运行代码
 * 用liteide调试代码（当前打开为main.go文件，编译、运行、调试才正常）
-4.项目结构
+4.使用注意
 ---
 
