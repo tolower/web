@@ -6,7 +6,7 @@
     
 beego开发参考：http://beego.me
 
-前端内容编辑器用了bootstrap-wysiwyg:https://github.com/mindmup/bootstrap-wysiwyg修改了其中插入文件的相关代码，原来是直接把图片文件数据base64编码，插入到内容中，修改为上传到七牛云服务器，然后返回图片的url地址。用到了七牛云的js（前端）和go（服务器）的相关sdk；
+前端内容编辑器用了bootstrap-wysiwyg:https://github.com/mindmup/bootstrap-wysiwyg 修改了其中插入文件的相关代码，原来是直接把图片文件数据base64编码，插入到内容中，修改为上传到七牛云服务器，然后返回图片的url地址。用到了七牛云的js（前端）和go（服务器）的相关sdk；
 
 前端添加公司信息时用到了自动补全插件Bootstrap-3-Typeahead：https://github.com/bassjobsen/Bootstrap-3-Typeahead
 2.数据库说明：
