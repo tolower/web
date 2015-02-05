@@ -20,10 +20,10 @@ func AddRefCompanyTopic(refCompanyTopic *RefCompanyTopic) error {
 }
 
 //获取
-func GetRefCompanyTopic(id int) (*RefCompanyTopic, error) {
+func GetRefCompanyTopic(id int) (RefCompanyTopic, error) {
 	o := orm.NewOrm()
 	refCompanyTopic := RefCompanyTopic{Id: id}
-	_, err := o.QueryTable("ref_company_topic").Filter("id", id).RelatedSel().One(&refCompanyTopic)
+	err := o.QueryTable("ref_company_topic").Filter("id", id).RelatedSel().One(&refCompanyTopic)
 	return refCompanyTopic, err
 }
 
