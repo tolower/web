@@ -24,7 +24,7 @@ beego开发参考：http://beego.me
 ---
 * 安装和配置go开发环境
 * 安装liteide开发工具
-* 安装mysql数据库（5.0版本，数据库引擎设置为innerDB）
+* 安装mysql数据库（5.0版本，数据库引擎设置为innoDB）
 * 安装beego环境和bee工具
 * 用git客户端拉取项目开发代码
 * 用bee工具运行代码
